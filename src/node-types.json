@@ -390,6 +390,14 @@
     "named": false
   },
   {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "@",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },
@@ -451,11 +459,11 @@
   },
   {
     "type": "word",
-    "named": false
+    "named": true
   },
   {
     "type": "word",
-    "named": true
+    "named": false
   },
   {
     "type": "|",

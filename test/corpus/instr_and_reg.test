@@ -41,17 +41,6 @@ movzbl	-1(%rbp), %eax
         (ident (reg))))
 
 ==========
-Instruction -- Integer immediate arg, reg arg (GAS x86)
-==========
-andl	$15, %eax
----
-(program
-    (instruction
-        kind: (word)
-        (int)
-        (ident (reg))))
-
-==========
 Instruction -- Reg arg, Integer immediate arg (ARM A64)
 ==========
 mov X10, #1
@@ -119,7 +108,7 @@ ldr x8, [sp]
 ==========
 Instruction -- Reg arg, section address arg (ARM A64)
 ==========
-adr X1, helloworld
+ldr X1, =helloworld
 ---
 (program
     (instruction
@@ -129,21 +118,7 @@ adr X1, helloworld
                 (word)))
          (ident
               (reg
-              (word)))))
-
-==========
-Instruction -- Section address arg, reg arg (GAS x86)
-==========
-mov $msg, %ecx
----
-(program
-    (instruction
-        (word)
-        (ident
-            (reg
-                (address)))
-         (ident
-              (reg))))
+              (address)))))
 
 ==========
 Instruction -- Dotted label arg

@@ -118,7 +118,7 @@ module.exports = grammar({
 
         word: $ => /[a-zA-Z0-9_]+/,
         _reg: $ => /%?[a-z0-9]+/,
-        address: $ => /\$[a-zA-Z0-9_]+/, // GAS x86 address
+        address: $ => /\[$, =][a-zA-Z0-9_]+/, // GAS x86 address
         reg: $ => choice($._reg, $.word, $.address),
         meta_ident: $ => /\.[a-z_]+/,
         _ident: $ => /[a-zA-Z_0-9.]+/,
@@ -127,6 +127,8 @@ module.exports = grammar({
         line_comment: $ =>
             choice(
                 seq('#', token.immediate(/.*/)),
+                seq("@", /(\\(.|\r?\n)|[^\\\n])*/),
+                seq(";", /(\\(.|\r?\n)|[^\\\n])*/),
                 /(\/\/|;).*/,
             ),
         block_comment: $ =>

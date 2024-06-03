@@ -1,0 +1,11 @@
+[[language]]
+name = "asm"
+scope = "source.asm"
+injection-regex = "asm"
+comment-tokens = [";@", ";", "@"]
+indent = { tab-width = 4, unit = " " }
+file-types = ["s"]
+
+[[grammar]]
+name = "asm"
+source = { git = "https://github.com/Rafael-Innecco/tree-sitter-asm.git", rev = "2fbd5121bbb92f8002111b253c970007ffa63d87" }

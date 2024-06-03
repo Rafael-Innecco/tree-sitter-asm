@@ -1,29 +1,13 @@
-; General
-(label
-  [(ident) (word)] @label)
-
+(const) @contant
+(line_comment) @comment.line
+(block_comment) @comment.block
+(int) @constant.numeric.integer
+(float) @constant.numeric.float
+(label) @label
+(instruction) @function.special
+(address) @variable.other
 (reg) @variable.builtin
-
-(meta
-  kind: (_) @function.builtin)
-
-(instruction
-  kind: (_) @function.builtin)
-
-(const
-  name: (word) @constant)
-
-; Comments
-[
-  (line_comment)
-  (block_comment)
-] @comment @spell
-
-; Literals
-(int) @number
-
-(float) @number.float
-
+(meta) @function.buitin
 (string) @string
 
 ; Keywords
@@ -38,7 +22,6 @@
   "const"
 ] @keyword
 
-; Operators & Punctuation
 [
   "+"
   "-"
@@ -50,14 +33,6 @@
   "&"
 ] @operator
 
-[
-  "("
-  ")"
-  "["
-  "]"
-] @punctuation.bracket
+["(" ")" "[" "]"] @punctuation.bracket
 
-[
-  ","
-  ":"
-] @punctuation.delimiter
+["," ":"] @punctuation.delimiter
